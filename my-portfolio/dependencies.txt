@@ -1,0 +1,18 @@
+my-portfolio@0.1.0 /Users/kirtan_patel/Documents/Portfolio/kpatportfolio/my-portfolio
+├── @emnapi/runtime@1.5.0 extraneous
+├── @tailwindcss/postcss@4.1.13
+├── @tailwindcss/postcss7-compat@2.2.17
+├── @types/node@24.5.2
+├── @types/react-dom@18.3.7
+├── @types/react@18.3.24
+├── autoprefixer@10.4.21
+├── dotenv@17.2.2
+├── eslint@9.35.0
+├── next@15.5.3
+├── openai@5.21.0
+├── postcss@8.5.6
+├── react-dom@18.3.1
+├── react@18.3.1
+├── tailwindcss@4.1.13
+└── typescript@5.9.2
+
