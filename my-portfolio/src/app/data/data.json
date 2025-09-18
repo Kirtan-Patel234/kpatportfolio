@@ -1,0 +1,106 @@
+[
+  {
+    "id": 1,
+    "type": "contact",
+    "name": "Kirtan Patel",
+    "birthday": "2004-02-03",
+    "email": "patel.kirtan2004@outlook.com",
+    "phone": "(219)433-8420",
+    "linkedin": "https://www.linkedin.com/in/kirtan-patel-3616b3294/"
+  },
+  {
+    "id": 2,
+    "type": "summary",
+    "text": "Data Science student with experience in scalable data pipelines, predictive models, and big data analytics. Skilled in Python, SQL, and ETL, with strong foundations in data quality and machine learning."
+  },
+  {
+    "id": 3,
+    "type": "education",
+    "institution": "University of Illinois Urbana-Champaign",
+    "school": "Siebel School of Computing and Data Science",
+    "degree": "B.S. in Data Science",
+    "expected_graduation": "May 2026",
+    "courses": [
+      "Foundations of Data Science",
+      "Applied Data Science with Python",
+      "Intro to Machine Learning",
+      "Probability and Statistics for CS"
+    ]
+  },
+  {
+    "id": 4,
+    "type": "experience",
+    "role": "Project Manager",
+    "organization": "Illinois Data Science Club",
+    "date": "Aug 2023 - Present",
+    "responsibilities": [
+      "Built pipelines processing 25GB of F1 telemetry & weather data",
+      "Trained RandomForest & XGBoost models with data quality checks",
+      "Created data visualizations for feature importance",
+      "Designed predictive pipelines with ensemble learning"
+    ],
+    "achievements": [
+      "Secured 2nd place out of 25 teams in IDSC’s Data Dive Competition"
+    ]
+  },
+  {
+    "id": 5,
+    "type": "experience",
+    "role": "Data Scientist",
+    "organization": "Illinois Statistics Datathon",
+    "date": "Mar 2025",
+    "responsibilities": [
+      "Built end-to-end data solution combining financial forecasting and fraud risk analysis",
+      "Developed chain forecasting model with linear regression (RMSE 1200)",
+      "Engineered RandomForest classifier detecting fraud risk with 86% accuracy"
+    ],
+    "achievements": [
+      "Finalist out of 180 teams, recognized for technical maturity, business alignment, and data quality practices"
+    ]
+  },
+  {
+    "id": 6,
+    "type": "project",
+    "title": "NFL Injury Forecast",
+    "date": "Mar 2024",
+    "text": "Developed web scraper for player injury data (2004–2022). Built linear regression model to predict retention after injuries with 60% accuracy. Used SQL to manipulate large datasets ensuring accuracy."
+  },
+  {
+    "id": 7,
+    "type": "project",
+    "title": "Candidate Recommendation Engine",
+    "date": "Aug 2025",
+    "text": "Built AI-driven web app using SentenceTransformer embeddings to rank candidates (ROC AUC 0.81, Accuracy 71%). Added PDF resume parser grouping 50+ resumes. Integrated Google Gemini API to generate automated summaries, reducing manual review time by 40%. Streamlit UI allowed recruiters to filter, rank, and download reports."
+  },
+  {
+    "id": 8,
+    "type": "skills",
+    "technical": [
+      "Python", "SQL", "R", "Java", "C++",
+      "Pandas", "NumPy", "Scikit-learn",
+      "PyTorch", "TensorFlow", "Tableau",
+      "AWS", "Azure", "GCP"
+    ],
+    "techniques": [
+      "NLP", "Data Pipelines", "Big Data Analytics",
+      "Data Visualization", "RAG", "Vector Embeddings"
+    ],
+    "soft": [
+      "Analytical Reasoning", "Critical Thinking",
+      "Collaboration", "Ethical AI"
+    ]
+  },
+  {
+    "id": 9,
+    "type": "personal",
+    "hobbies": [
+      "Playing soccer",
+      "Working out",
+      "Playing chess",
+      "Watching sports"
+    ],
+    "favorites": {
+      "show": "Breaking Bad"
+    }
+  }
+]

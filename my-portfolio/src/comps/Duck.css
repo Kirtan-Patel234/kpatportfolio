@@ -1,0 +1,20 @@
+.duck.continuous {
+    position: fixed;
+    bottom: 10px;       /* near the bottom */
+    right: -120px;       /* start off-screen to the left */
+    width: 100px;
+    z-index: 9999;
+    pointer-events: none; /* doesn't block clicks */
+    animation: walk 10s linear infinite;
+  }
+  
+  /* Continuous walking animation */
+  @keyframes walk {
+    0% {
+      right: -120px; /* start off-screen */
+    }
+    100% {
+      right: 100vw;  /* move across the full viewport width */
+    }
+  }
+  
