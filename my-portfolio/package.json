@@ -10,6 +10,7 @@
     "vercel-build": "next build"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.5.0",
     "dotenv": "^17.2.2",
     "next": "^15.5.3",
     "openai": "^5.21.0",
