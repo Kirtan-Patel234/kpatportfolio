@@ -1,21 +1,23 @@
-import { NextResponse } from "next/server";
+// src/pages/api/chat.ts
 import fs from "fs";
 import path from "path";
 import OpenAI from "openai";
+import type { NextApiRequest, NextApiResponse } from "next";
+
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 // load all embeddings from generated embeddings file
 let embeddings: { text: string; embedding: number[] }[] = [];
 try {
-const embeddingsPath = path.join(process.cwd(), "src/app/data/embeddings.json");
-embeddings = JSON.parse(fs.readFileSync(embeddingsPath, "utf-8"));
-} catch (err){
+  const embeddingsPath = path.join(process.cwd(), "src/app/data/embeddings.json");
+  embeddings = JSON.parse(fs.readFileSync(embeddingsPath, "utf-8"));
+} catch (err) {
   console.error("❌ Failed to load embeddings.json:", err);
   embeddings = [];
 }
 
-// cosine similarity to pull most relevant data for chatbot
+// cosine similarity function
 function cosineSimilarity(a: number[], b: number[]) {
   const dot = a.reduce((sum, val, i) => sum + val * b[i], 0);
   const magA = Math.sqrt(a.reduce((sum, val) => sum + val * val, 0));
@@ -23,15 +25,19 @@ function cosineSimilarity(a: number[], b: number[]) {
   return dot / (magA * magB);
 }
 
-export async function POST(req: Request) {
+export default async function handler(req: NextApiRequest,
+    res: NextApiResponse) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ answer: "Method not allowed" });
+  }
+
   try {
-    const { prompt } = await req.json();
+    const { prompt } = req.body;
 
     if (!prompt) {
-      return NextResponse.json({ answer: "Prompt is missing" }, { status: 400 });
+      return res.status(400).json({ answer: "Prompt is missing" });
     }
 
-    // get embedding for the user query
     const queryEmbeddingRes = await openai.embeddings.create({
       model: "text-embedding-3-small",
       input: prompt,
@@ -39,13 +45,11 @@ export async function POST(req: Request) {
     const queryEmbedding = queryEmbeddingRes.data?.[0]?.embedding;
     if (!queryEmbedding) throw new Error("No query embedding returned");
 
-    // compute similarity with all embeddings
     const similarities = embeddings.map((item) => ({
       ...item,
       similarity: cosineSimilarity(item.embedding, queryEmbedding),
     }));
 
-    // retrieve top 4 contexts
     const topContexts = similarities
       .sort((a, b) => b.similarity - a.similarity)
       .slice(0, 4)
@@ -53,7 +57,6 @@ export async function POST(req: Request) {
       .join("\n")
       .slice(0, 2000);
 
-    // ask OpenAI chat with retrieved contexts
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini",
       messages: [
@@ -68,14 +71,10 @@ export async function POST(req: Request) {
     });
 
     const answer = completion.choices?.[0]?.message?.content ?? "No answer returned";
-    return NextResponse.json({ answer });
+    res.status(200).json({ answer });
   } catch (error) {
     const err = error instanceof Error ? error : new Error(String(error));
     console.error("RAG API error:", err);
-  
-    return NextResponse.json(
-      { answer: `Error in rout.ts: ${err.message}` },
-      { status: 500 }
-    );
+    res.status(500).json({ answer: `Error in chat.ts: ${err.message}` });
   }
 }
