@@ -403,12 +403,51 @@ Live Demo
 </div>
 
 
-  {/* placeholder for GPT Wrapper */}
-  <div className="bg-white/10 backdrop-blur-md p-6 rounded-3xl text-gray-100 hover:scale-105 transition-transform">
-    <h2 className="text-2xl font-bold mb-2">🧠 GPT Wrapper Portfolio Project</h2>
-    <p className="text-lg leading-relaxed">Description goes here.</p>
-    <p className="text-sm text-gray-300 mb-2">Key features / technologies go here.</p>
+  {/* GPT Wrapper Portfolio Project */}
+<div className="bg-white/10 backdrop-blur-md p-6 rounded-3xl text-gray-100 hover:scale-105 transition-transform">
+  {/* Project Title */}
+  <h2 className="text-2xl font-bold mb-2">🧠 GPT Wrapper Portfolio</h2>
+
+  {/* Project Overview */}
+  <p className="mb-4 text-lg leading-relaxed">
+    Built a GPT-powered assistant that answers questions about my portfolio and projects in real-time. 
+    The system uses embeddings to retrieve relevant context from my data and generates professional, 
+    concise responses for recruiters or hiring managers.
+  </p>
+
+  {/* Key Highlights */}
+  <ul className="list-disc list-inside mb-4 space-y-1 text-gray-300 text-sm">
+    <li>Implemented Retrieval-Augmented Generation (RAG) pipeline for context-aware AI responses.</li>
+    <li>Processed portfolio and project data into embeddings for semantic search.</li>
+    <li>Integrated OpenAI GPT-4o-mini model to generate professional answers dynamically.</li>
+    <li>Created an interactive, real-time web interface using Next.js and TailwindCSS.</li>
+    <li>Optimized response generation for both speed and relevance using cosine similarity.</li>
+  </ul>
+
+  {/* Skills / Technologies */}
+  <div className="flex flex-wrap gap-2 mb-2">
+    <span className="bg-blue-600/30 text-blue-200 px-2 py-1 rounded text-xs font-semibold">Next.js</span>
+    <span className="bg-blue-600/30 text-blue-200 px-2 py-1 rounded text-xs font-semibold">TypeScript</span>
+    <span className="bg-blue-600/30 text-blue-200 px-2 py-1 rounded text-xs font-semibold">TailwindCSS</span>
+    <span className="bg-blue-600/30 text-blue-200 px-2 py-1 rounded text-xs font-semibold">OpenAI API</span>
+    <span className="bg-blue-600/30 text-blue-200 px-2 py-1 rounded text-xs font-semibold">RAG</span>
+    <span className="bg-blue-600/30 text-blue-200 px-2 py-1 rounded text-xs font-semibold">Embeddings</span>
+    <span className="bg-blue-600/30 text-blue-200 px-2 py-1 rounded text-xs font-semibold">NLP</span>
   </div>
+
+  {/* Links */}
+  <div className="flex flex-wrap gap-4">
+    <a
+      href="https://github.com/Kirtan-Patel234/kpatportfolio/tree/main/my-portfolio"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-cyan-400 hover:underline text-sm font-semibold"
+    >
+      View on GitHub
+    </a>
+  </div>
+</div>
+
 </div>
 
         </div>
